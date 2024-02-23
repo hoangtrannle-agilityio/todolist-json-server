@@ -12,6 +12,9 @@ const middlewares = jsonServer.defaults();
 // Use the middlewares
 server.use(middlewares);
 
+server.use(jsonServer.rewriter({
+    '/api/*': '/$1'
+}))
 // Use the router for handling API routes
 server.use(router);
 
